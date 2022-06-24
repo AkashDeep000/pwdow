@@ -80,6 +80,7 @@ const credentials = { email: 'contact.pwclass@gmail.com', pass: '@hsakA321#', re
 const onVideoUploadSuccess = (videoUrl) => {
     // ..do something..
     console.log(videoUrl,"\nSuccessfully Uploaded Video to YouTube")
+    await new Promise(resolve => setTimeout(resolve, 500))
     process.exit(1)     
 }
 // Extra options like tags, thumbnail, language, playlist etc

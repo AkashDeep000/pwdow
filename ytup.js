@@ -77,10 +77,15 @@ const credentials = { email: 'contact.pwclass@gmail.com', pass: '@hsakA321#', re
 // minimum required options to upload video
 //const video1 = { path: 'video.mp4', title: 'title 1', description: 'description 1' }
 
-const onVideoUploadSuccess = (videoUrl) => {
+const onVideoUploadSuccess = async (videoUrl) => {
     // ..do something..
     console.log(videoUrl,"\nSuccessfully Uploaded Video to YouTube")
-    await new Promise(resolve => setTimeout(resolve, 500))
+    await sleep(500)
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
     process.exit(1)     
 }
 // Extra options like tags, thumbnail, language, playlist etc

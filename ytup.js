@@ -4,7 +4,8 @@ import fs from "fs"
 import { uid } from 'uid';
 import exec from "await-exec";
 /*
-import {exec} from "node:child_process";
+import {execLive} from "./exec.js";
+//import {exec} from "node:child_process";
 import util from "node:util";
 */
 import { upload } from 'youtube-videos-uploader'
@@ -45,9 +46,10 @@ axios.get(url_720)
        console.log("✅ m3u8 created")
 
    try {
-     console.log("in video")
+     console.log("Downloading video...")
      
-    await  exec(
+
+    await exec(
       `ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i /tmp/${id}-main.m3u8 -c copy -bsf:a aac_adtstoasc /tmp/${id}-video.mp4`)
 
 
@@ -58,7 +60,7 @@ const execPromise = util.promisify(exec);
 try {
   // wait for exec to complete
   console.log(1)
-  const {stdout, stderr} = await execPromise(`ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i main.m3u8 -c copy -bsf:a aac_adtstoasc /tmp/${id}-video.mp4`);
+  const {stdout, stderr} = await execPromise(`ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i /tmp/${id}-main.m3u8 -c copy -bsf:a aac_adtstoasc /tmp/${id}-video.mp4`);
   console.log(2)
   console.log(stdout,stderr)
 } catch (error) {
@@ -94,7 +96,8 @@ const video = {
 // This package uses Puppeteer, you can also pass Puppeteer launch configuration
 upload (credentials, [video], {
   headless: true,
-    //   executablePath: '/usr/bin/chromium-browser',
+  
+       executablePath: '/usr/bin/chromium-browser',
        args: [
        "--no-sandbox",
        "--disable-gpu",

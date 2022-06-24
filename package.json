@@ -14,6 +14,7 @@
     "apilessyt": "^0.3.18",
     "await-exec": "^0.1.2",
     "axios": "^0.27.2",
+    "download": "^8.0.0",
     "m3u8-parser": "^4.7.1",
     "node-apiless-youtube-upload": "^1.1.9",
     "puppeteer": "^14.4.1",

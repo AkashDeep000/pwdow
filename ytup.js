@@ -9,11 +9,14 @@ import {execLive} from "./exec.js";
 import util from "node:util";
 */
 import { upload } from 'youtube-videos-uploader'
+import download from "download"
 
 const url = argv[2]
 const title = argv[3]
+const playlist = argv[4]
+const thumbnail = argv[5]
 
-console.log("url: "+url)
+console.log(url,title,playlist,thumbnail)
 const url_720 =  url.replace("master", "hls/720/main")
 //console.log(url_720)
 
@@ -90,6 +93,18 @@ const video = {
   //playlist: 'playlist name',
  channelName: 'PWclass', 
   onSuccess:onVideoUploadSuccess, skipProcessingWait: true, onProgress: (progress) => { console.log('progress', progress) } }
+  if (playlist && playlist != "none") {
+    video.playlist = playlist
+  }
+  if (thumbnail && thumbnail != "none") {
+    
+    const thumbnailPath = `/tmp/${id}-image.${thumbnail.split(/[#?]/)[0].split('.').pop().trim()}`
+    fs.writeFileSync(thumbnailPath, await download(thumbnail));
+ 
+ 
+    video.thumbnail = thumbnailPath
+  }
+  console.log(video)
 
 
 
@@ -97,7 +112,7 @@ const video = {
 upload (credentials, [video], {
   headless: true,
   
-       executablePath: '/usr/bin/chromium-browser',
+      executablePath: '/usr/bin/chromium-browser',
        args: [
        "--no-sandbox",
        "--disable-gpu",

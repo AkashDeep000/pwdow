@@ -44,9 +44,9 @@ axios.get(url_720)
       }
     })
 
-    console.log(m3u8New)
+   // console.log(m3u8New)
    await fs.writeFileSync(`/tmp/${id}-main.m3u8`, m3u8New);
-       console.log("✅ m3u8 created")
+       console.log("M3U8 CREATED")
 
    try {
      console.log("Downloading video...")
@@ -70,7 +70,7 @@ try {
   console.log(error);
 }
 */
- console.log("✅  video created")
+ console.log("Successfully Processed Video")
 
 const credentials = { email: 'contact.pwclass@gmail.com', pass: '@hsakA321#', recoveryemail: 'akashdeepdas321@gmail.com' }
 
@@ -79,7 +79,7 @@ const credentials = { email: 'contact.pwclass@gmail.com', pass: '@hsakA321#', re
 
 const onVideoUploadSuccess = (videoUrl) => {
     // ..do something..
-    console.log(videoUrl,"success")
+    console.log(videoUrl,"\nSuccessfully Uploaded Video to YouTube")
     process.exit(1)     
 }
 // Extra options like tags, thumbnail, language, playlist etc
@@ -106,12 +106,12 @@ const video = {
   }
   console.log(video)
 
-
+console.log("Starting Youtube Upload...")
 
 // This package uses Puppeteer, you can also pass Puppeteer launch configuration
 upload (credentials, [video], {
   headless: true,
-  
+  //comment it for aws
       executablePath: '/usr/bin/chromium-browser',
        args: [
        "--no-sandbox",

@@ -72,7 +72,7 @@ try {
 */
  console.log("Successfully Processed Video")
 
-const credentials = { email: 'contact.pwclass@gmail.com', pass: '@hsakA321#', recoveryemail: 'akashdeepdas321@gmail.com' }
+const credentials = { email: 'pwclass.yt@gmail.com', pass: '@pw=>yt#', recoveryemail: 'akashdeepdas321@gmail.com' }
 
 // minimum required options to upload video
 //const video1 = { path: 'video.mp4', title: 'title 1', description: 'description 1' }
@@ -123,7 +123,8 @@ upload (credentials, [video], {
        "--no-sandbox",
        "--disable-gpu",
        ]
-}).then(console.log);
+})
+//.then(console.log);
     
   } catch (err) {
     console.log(err)

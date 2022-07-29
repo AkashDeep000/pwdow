@@ -72,7 +72,7 @@ try {
 */
  console.log("Successfully Processed Video")
 
-const credentials = { email: 'pwclass.yt@gmail.com', pass: '@pw=>yt#', recoveryemail: 'akashdeepdas321@gmail.com' }
+const credentials = { email: 'pwclass.yt@gmail.com', pass: 'pwclass2022@', recoveryemail: 'akashdeepdas321@gmail.com' }
 
 // minimum required options to upload video
 //const video1 = { path: 'video.mp4', title: 'title 1', description: 'description 1' }
